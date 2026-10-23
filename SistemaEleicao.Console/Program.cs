@@ -61,12 +61,20 @@ case 1:
             "Candidato cadastrado com sucesso!"
         );
     }
+    
     catch (InvalidOperationException ex)
+    {
+        System.Console.WriteLine("Erro: " + ex.Message);
+    }
+    catch (ArgumentException ex)
     {
         System.Console.WriteLine("Erro: " + ex.Message);
     }
 
     break;
+
+ 
+    
 
 
         case 2:
