@@ -53,5 +53,29 @@ namespace SistemaEleicao.Tests
             // Assert
             Assert.Equal(2, eleicao.ListarCandidatos().Count);
         }
-    }
+    
+[Fact]
+public void NaoDevePermitirCandidatoComNomeVazio()
+{
+    Assert.Throws<ArgumentException>(() =>
+        new Candidato("", 15)
+    );
+}
+
+[Fact]
+public void NaoDevePermitirCandidatoComNomeEmBranco()
+{
+    Assert.Throws<ArgumentException>(() =>
+        new Candidato("   ", 15)
+    );
+}
+
+[Fact]
+public void NaoDevePermitirCandidatoComNumeroNegativo()
+{
+    Assert.Throws<ArgumentException>(() =>
+        new Candidato("Gabriel", -1)
+    );
+}
+}
 }
