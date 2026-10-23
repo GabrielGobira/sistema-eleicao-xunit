@@ -90,9 +90,27 @@ dotnet test
 - O candidato com mais votos válidos vence.
 - Em caso de empate, não existe vencedor único.
 
+
 ## Testes automatizados
 
-O projeto possui 17 testes automatizados com xUnit, cobrindo cadastro de candidatos, cadastro de eleitores, votação e apuração.
+O projeto possui 20 testes automatizados com xUnit, cobrindo:
+
+- Cadastro e validação de candidatos.
+- Cadastro e validação de eleitores.
+- Registro de votos válidos, brancos e nulos.
+- Bloqueio de votos duplicados.
+- Contagem de votos por candidato.
+- Identificação do vencedor.
+- Tratamento de empates.
+
+### Executar os testes
+
+```bash
+dotnet test
+```
+
+Resultado da última execução: 20 testes aprovados.
+
 
 ## Autor
 
