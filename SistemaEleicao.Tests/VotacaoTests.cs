@@ -14,17 +14,18 @@ namespace SistemaEleicao.Tests
             var eleicao = new EleicaoManager();
 
             eleicao.CadastrarCandidato(
-                new Candidato("Gabriel", 15)
+                new Candidato("Gabriel", 22)
             );
 
             var eleitor = new Eleitor("12345678900");
             eleicao.CadastrarEleitor(eleitor);
 
-            eleicao.RegistrarVoto("12345678900", 15);
+            eleicao.RegistrarVoto("12345678900", 22);
 
             Assert.True(eleitor.JaVotou);
             Assert.Equal(0, eleicao.VotosNulos);
             Assert.Equal(0, eleicao.VotosBrancos);
+            Assert.Equal(1, eleicao.ObterVotosCandidato(22));
         }
 
         [Fact]
@@ -61,17 +62,17 @@ namespace SistemaEleicao.Tests
             var eleicao = new EleicaoManager();
 
             eleicao.CadastrarCandidato(
-                new Candidato("Gabriel", 15)
+                new Candidato("Gabriel", 22)
             );
 
             eleicao.CadastrarEleitor(
                 new Eleitor("12345678900")
             );
 
-            eleicao.RegistrarVoto("12345678900", 15);
+            eleicao.RegistrarVoto("12345678900", 22);
 
             Assert.Throws<InvalidOperationException>(() =>
-                eleicao.RegistrarVoto("12345678900", 15)
+                eleicao.RegistrarVoto("12345678900", 22)
             );
         }
 
@@ -81,7 +82,7 @@ namespace SistemaEleicao.Tests
             var eleicao = new EleicaoManager();
 
             Assert.Throws<InvalidOperationException>(() =>
-                eleicao.RegistrarVoto("99999999999", 15)
+                eleicao.RegistrarVoto("99999999999", 22)
             );
         }
     }
